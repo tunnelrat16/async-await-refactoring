@@ -1,12 +1,10 @@
 const ask = require("./ask")
 
-const askQuestion = (question) => {
-  ask(question).then(result => {
-    console.log('Promise 1:', result.response)
-    .ask(question).then(result => {
-      console.log('Promise 2:', result.response)
-    })
-  })
+async function askQuestion(question) {
+    const result = await ask(question);
+    console.log('Promise 1:', result.response);
+    const result2 = await ask(question);
+    console.log('Promise 2:', result2.response);
 }
 
-askQuestion("Why is the sky blue?")
+askQuestion("Why is Gamora?")
